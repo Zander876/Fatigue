@@ -16,15 +16,15 @@ class User(db.Model, UserMixin):
     id= db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(20), unique = True, index = True)
     email = db.Column(db.String(64), unique=True, index =True)
-    unit = db.Column(db.String(20), nullable = False)
+    subunit = db.Column(db.String(20), nullable = False)
     trade = db.Column(db.String(20), nullable = False)
     password_hashed = db.Column(db.String(128))
     reports = db.relationship('Report', backref = "author", lazy = True)
 
-    def __init__(self, username, email, unit, trade, password):
+    def __init__(self, username, email, subunit, trade, password):
         self.username = username
         self.email = email
-        self.unit = unit
+        self.subunit = subunit
         self.trade = trade
         self.password_hashed = generate_password_hash(password)
 
