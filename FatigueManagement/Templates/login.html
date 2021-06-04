@@ -4,4 +4,20 @@
 
 <h1> Login page</h1>
 
+
+<form method="POST">
+
+  {{form.hidden_tag()}}
+  <div class="mb-3">
+    {{form.email.label}} {{form.email()}} <br>
+  </div>
+  <div class="mb-3">
+    {{form.password.label}}  {{form.password()}} <br>
+  </div>
+  <div class="mb-3">
+    {{form.submit}}
+  </div>
+
+
+</form>
 {% endblock %}
