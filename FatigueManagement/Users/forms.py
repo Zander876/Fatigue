@@ -1,7 +1,7 @@
 #user forms
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SubmitField, PasswordField
+from wtforms import StringField, IntegerField, SubmitField, PasswordField, RadioField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed # allows to update png or jpg file
@@ -11,12 +11,12 @@ from FatigueManagement.Models import User
 
 # Registration
 class RegisterationForm(FlaskForm):
-    email = StringField('Email', validators = [DataRequired(), Email()])
-    username = StringField('Username', validators = [DataRequired()])
-    subunit = StringField('Subunit', validators = [DataRequired()])
-    trade = StringField('Trade', validators = [DataRequired()])
-    password =PasswordField('Password', validators= [DataRequired()])
-    pass_confirm = PasswordField('Confirm Password', validators = [DataRequired(), EqualTo('password', message='Passwords Must Match')])
+    email = StringField('Email:', validators = [DataRequired(), Email()])
+    username = StringField('Username:', validators = [DataRequired()])
+    subunit = SelectField(label='Subunit:', choices=[('1', '1 Flt'), ('2','2 Flt'), ('Sp Flt', 'Sp Flt'), ('1 Fd Wksp', '1 Fd Wksp')], validators = [DataRequired()])
+    trade = RadioField(label='Trade:', choices= [('Pilot', 'Pilot'), ('Aircrewman','Aircrewman'), ('Aircraft Technician', 'Aircraft Technician'), ('Air Traffic Controller','Air Traffic Controller'), ('Sensor Operator', 'Sensor Operator' )],  validators = [DataRequired()])
+    password =PasswordField('Password:', validators= [DataRequired()])
+    pass_confirm = PasswordField('Confirm Password:', validators = [DataRequired(), EqualTo('password', message='Passwords Must Match')])
     submit = SubmitField('Register')
 
     def check_email(self, field):

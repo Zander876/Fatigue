@@ -62,8 +62,8 @@ def account():
     form = UpdateUserForm()
 
     if form.validate_on_submit():
-        if form.username.data != "":
-            current_user.username = form.username.data
+        # if form.username.data != "":
+        #     current_user.username = form.username.data
         if form.email.data != "":
             current_user.email = form.email.data
         if form.trade.data != "":

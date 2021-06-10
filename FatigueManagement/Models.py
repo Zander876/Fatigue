@@ -16,8 +16,8 @@ class User(db.Model, UserMixin):
     id= db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(20), unique = True, index = True)
     email = db.Column(db.String(64), unique=True, index =True)
-    subunit = db.Column(db.String(20), nullable = False)
-    trade = db.Column(db.String(20), nullable = False)
+    subunit = db.Column(db.String(), nullable = False)
+    trade = db.Column(db.String(), nullable = False)
     password_hashed = db.Column(db.String(128))
     reports = db.relationship('Report', backref = "author", lazy = True)
 

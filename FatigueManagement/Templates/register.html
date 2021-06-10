@@ -6,23 +6,36 @@
   <form method="POST">
 
   {{form.hidden_tag()}}
-  <div class="mb-3">
-    {{form.email.label}} {{form.email}} <br>
-  </div>
+
   <div class="mb-3">
     {{form.username.label}} {{form.username}} <br>
   </div>
+
+  <div class="mb-3">
+    {{form.subunit.label}} {{form.subunit}} <br>
+  </div>
+
+  <div class="mb-3">
+    {{form.trade.label}} {{form.trade}} 
+  </div>
+
+  <div class="mb-3">
+    {{form.email.label}} {{form.email}} <br>
+  </div>
+
   <div class="mb-3">
     {{form.password.label}}  {{form.password}} <br>
   </div>
+
   <div class="mb-3">
     {{form.pass_confirm.label}}  {{form.pass_confirm}} <br>
   </div>
+
   <div class="mb-3">
     {{form.submit}}
   </div>
 
-    
+
 </form>
 
 {% endblock %}
