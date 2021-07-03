@@ -23,10 +23,11 @@ def register():
 
         db.session.add(user)
         db.session.commit()
-        flash("Thanks for Registration") # this willl be super quick and may not be read before the return
+        flash("Registration Successful. Thank You!") # this willl be super quick and may not be read before the return
         return redirect(url_for("users.login"))
-
-    return render_template('register.html', form = form)
+    else:
+        flash("Registration Failed! Please check the information you entered.")
+        return render_template('register.html', form = form)
 
 #login
 @users.route("/login", methods = ['GET', 'POST'])
@@ -89,6 +90,7 @@ def user_reports(username):
     user = User.query.filter_by(username = username).first_or_404() # incase name typed manually and was wrong then it can rune the 404 part
     reports = Report.query.filter_by(author = user).order_by(Report.date.desc()).paginate(page=page, per_page =5) #its based on the back ref for the relationship
     return render_template('summary_user.html', reports = reports, user = user)
+
 
 # Summary as seen by FSO
 # Summary as seen by Command

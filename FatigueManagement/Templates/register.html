@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Registraion Page</h1>
+  <h1>Registration Page</h1>
 
   <form method="POST">
 
   {{form.hidden_tag()}}
   <div class="mb-3">
     {{form.email.label}} {{form.email}} <br>
+  </div>
+  <div class="mb-3">
+    {{form.trade.label}} {{form.trade}}
   </div>
   <div class="mb-3">
     {{form.username.label}} {{form.username}} <br>
@@ -22,7 +25,13 @@
     {{form.submit}}
   </div>
 
-    
+
 </form>
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">Close</button>
+        {{ message }}
+    </div>
+    {% endfor %}
 
 {% endblock %}

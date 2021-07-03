@@ -13,17 +13,21 @@
       <li class = 'nav-link'> <a href="{{url_for('core.index')}}"> HOME </a> </li>
       <li class = 'nav-link'> <a href="{{url_for('core.info')}}"> About </a> </li>
 
+<<<<<<< Updated upstream
         <!if current_user.is_authenticated>
+=======
+        {% if current_user.is_authenticated %}
+>>>>>>> Stashed changes
         <li class = 'nav-link'> <a href="{{url_for('users.logout')}}"> Log out </a> </li>
         <li class = 'nav-link'> <a href="{{url_for('users.account')}}"> Account</a> </li>
         <li class = 'nav-link'> <a href="{{url_for('users.account' )}}"> History Fix me </a> </li>
         <li class = 'nav-link'> <a href="{{url_for('users.account')}}"> Create Report FIX ME!!</a> </li>
 
-      <! else>
+      {% else %}
 
         <li class = 'nav-link'> <a href="{{url_for('users.login')}}"> Login </a> </li>
         <li class = 'nav-link'> <a href="{{url_for('users.register')}}"> Register </a> </li>
-      <!endif>
+      {% endif %}
     </ul>
 
     <div class="container">

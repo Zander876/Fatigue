@@ -6,3 +6,7 @@ from FatigueManagement.Models import Report
 #from FatigueManagement.Assessment_Report.forms import ReportForm
 
 reports = Blueprint('reports', __name__)
+
+# create record
+
+# read personal record

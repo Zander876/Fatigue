@@ -19,6 +19,27 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Migrate(app, db)
 
+# ##### DB Pool Connection ####
+#
+# from sqlalchemy import create_engine, exc
+# e = create_engine(...)
+# c = e.connect()
+#
+# try:
+#     # suppose the database has been restarted.
+#     c.execute(text("SELECT * FROM table"))
+#     c.close()
+# except exc.DBAPIError:
+#     # an exception is raised, Connection is invalidated.
+#     if e.connection_invalidated:
+#         print("Connection was invalidated!")
+#
+# # after the invalidate event, a new connection
+# # starts with a new Pool
+# c = e.connect()
+# c.execute(text("SELECT * FROM table"))
+#
+
 ######## Setup LOGIN Confiurations
 login_manager = LoginManager()
 login_manager.init_app(app)
